@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <Button
+            android:id="@+id/btn_local_music"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="local music" >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_recently"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="recently" />
+
+        <Button
+            android:id="@+id/btn_download_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="download manager" />
+
+        <Button
+            android:id="@+id/my_singer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Singer" />
+
+        <TextView
+            android:id="@+id/txt_songlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Song List"
+            android:textSize="15sp"/>
+
+        <ListView
+            android:id="@+id/list_songlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
