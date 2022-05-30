@@ -45,9 +45,15 @@ public class NetFragment extends Fragment implements View.OnClickListener {
             case R.id.ll_song_list_1:
                 Intent intent = new Intent(getActivity(), SongListActivity.class);
                 songs_1 = new LinkedList<Song>();
+                /* Here You can modify the List object 'songs_1' to determine which and what song
+                 * will be shown in the SongListActivity
+                 *
+                 *
+                 * 修改此处代码段来对List对象songs_1进行修改，使其链表内容为下一个歌单Activity中会显示的歌曲 */
                 songs_1.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
                 songs_1.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
                 songs_1.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
+                /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
                 intent.putExtra("song_list", (Serializable) songs_1);
                 startActivity(intent);
                 break;

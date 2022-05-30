@@ -29,9 +29,9 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_songlist);
         bindView();
         songs = (List<Song>) getIntent().getSerializableExtra("song_list");
-        songs.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
-        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
-        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
+//        songs.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
+//        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
+//        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
         mInflater = SongListActivity.this.getLayoutInflater();
         songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
         list_song.setAdapter(songAdapter);

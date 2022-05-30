@@ -1,16 +1,19 @@
 package com.example.music;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,6 +53,15 @@ public class MusicFragment extends Fragment {
         mInflater = getActivity().getLayoutInflater();
         songListAdapter = new SongListAdapter((LinkedList<SongList>) songLists, mInflater);
         list_songlist.setAdapter(songListAdapter);
+
+        list_songlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), SongListActivity.class);
+                intent.putExtra("list_id", (Serializable) songLists.get(position));
+            }
+        });
+
         txt_content.setText(content);
         return view;
     }
