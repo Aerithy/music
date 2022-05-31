@@ -20,7 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private LinearLayout toolbar;
     private ImageView bar_net;

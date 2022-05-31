@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SongListActivity extends AppCompatActivity implements View.OnClickListener{
+public class SongListActivity extends BaseActivity implements View.OnClickListener{
 
     private List<Song> songs = null;
     private SongAdapter songAdapter = null;
@@ -22,6 +25,8 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
     private LinearLayout ll_songlist_toolbar;
     private ListView list_song;
     private LayoutInflater mInflater;
+    private ImageView img_songlist_icon;
+    private TextView txt_songlist_intro;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -37,11 +42,26 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
         mInflater = SongListActivity.this.getLayoutInflater();
         songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
         list_song.setAdapter(songAdapter);
+
+        list_song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Song current_play = songs.get(position);
+                /*Set the playing song field here
+                * Code:
+                * */
+            }
+        });
+
+        img_songlist_icon.setBackgroundResource(Icon);
     }
 
     private void bindView() {
         list_song = (ListView) findViewById(R.id.list_song);
         ll_songlist_toolbar = (LinearLayout) findViewById(R.id.ll_songlist_toolbar);
+        img_songlist_icon = (ImageView) findViewById(R.id.img_songlist_icon);
+        txt_songlist_intro = (TextView) findViewById(R.id.txt_songlist_intro);
+
     }
 
     @Override
