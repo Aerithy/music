@@ -17,6 +17,7 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
 
     private List<Song> songs = null;
     private SongAdapter songAdapter = null;
+    private int Icon;
 
     private LinearLayout ll_songlist_toolbar;
     private ListView list_song;
@@ -29,6 +30,7 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_songlist);
         bindView();
         songs = (List<Song>) getIntent().getSerializableExtra("song_list");
+        Icon = getIntent().getIntExtra("song_icon", 0);
 //        songs.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
