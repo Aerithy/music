@@ -27,6 +27,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".LocalSongsActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="LocalSongsAction" />
+                <category android:name="LocalSongsCategory" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

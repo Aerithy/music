@@ -44,18 +44,21 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
 //        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
         mInflater = LocalSongsActivity.this.getLayoutInflater();
-        songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
-        list_song.setAdapter(songAdapter);
+        if (songs != null) {
+            songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
+            list_song.setAdapter(songAdapter);
 
-        list_song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Song current_play = songs.get(position);
-                /*Set the playing song field here
-                 * Code:
-                 * */
-            }
-        });
+            list_song.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Song current_play = songs.get(position);
+                    /*Set the playing song field here
+                     * Code:
+                     * */
+                }
+            });
+        }
+
 
         if (!CSApp.getPlayState()) {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_pause);
@@ -63,10 +66,8 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
         else {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
         }
-        int i = ll_songlist_toolbar.getDrawingCacheBackgroundColor();
 
         img_songlist_icon.setBackgroundResource(Icon);
-        System.out.println("Fuck me" + i);
     }
 
     private void bindView() {

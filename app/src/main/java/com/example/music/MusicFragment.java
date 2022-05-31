@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,18 +19,36 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MusicFragment extends Fragment {
+public class MusicFragment extends Fragment implements View.OnClickListener{
 
     private String content;
+    private View view;
     private List<SongList> songLists = null;
     private SongListAdapter songListAdapter = null;
     private ListView list_songlist;
     private LayoutInflater mInflater;
 
+    private Button btn_local_music;
+    private Button btn_recently;
+    private Button btn_download_manage;
+    private Button btn_my_singer;
+
     public MusicFragment(String content) {
 
         this.content = content;
 
+    }
+
+    private void bindViews() {
+        btn_local_music = (Button) view.findViewById(R.id.btn_local_music);
+        btn_recently = (Button) view.findViewById(R.id.btn_recently);
+        btn_download_manage = (Button) view.findViewById(R.id.btn_download_manage);
+        btn_my_singer = (Button) view.findViewById(R.id.btn_my_singer);
+
+        btn_local_music.setOnClickListener(this);
+        btn_recently.setOnClickListener(this);
+        btn_download_manage.setOnClickListener(this);
+        btn_my_singer.setOnClickListener(this);
     }
 
     @Override
@@ -56,9 +75,10 @@ public class MusicFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_music,container,false);
+        view = inflater.inflate(R.layout.fg_music,container,false);
         TextView txt_content = (TextView) view.findViewById(R.id.txt_songlist);
         list_songlist = (ListView) view.findViewById(R.id.list_songlist);
+        bindViews();
 
         initSongLists();
         addSongList("Waiting in the weeds", R.drawable.actionbar_music_normal);
@@ -79,5 +99,15 @@ public class MusicFragment extends Fragment {
 
         txt_content.setText(content);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_local_music:
+                Intent intent = new Intent(getActivity(), LocalSongsActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
