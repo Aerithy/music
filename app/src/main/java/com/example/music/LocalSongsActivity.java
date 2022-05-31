@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SongListActivity extends AppCompatActivity implements View.OnClickListener{
+public class LocalSongsActivity extends AppCompatActivity implements View.OnClickListener{
 
     private List<Song> songs = null;
     private SongAdapter songAdapter = null;
@@ -43,7 +43,7 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
 //        songs.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
-        mInflater = SongListActivity.this.getLayoutInflater();
+        mInflater = LocalSongsActivity.this.getLayoutInflater();
         songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
         list_song.setAdapter(songAdapter);
 
@@ -52,8 +52,8 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Song current_play = songs.get(position);
                 /*Set the playing song field here
-                * Code:
-                * */
+                 * Code:
+                 * */
             }
         });
 

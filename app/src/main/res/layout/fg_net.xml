@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2px"
                 android:background="@color/white"
-                android:layout_above="@id/ly_tab_bar"/>
+                android:layout_above="@id/ll_tab_bar"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -11,6 +11,19 @@ import androidx.fragment.app.Fragment;
 public class FriendFragment extends Fragment {
 
     private String content;
+    private boolean hidden;
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(hidden){
+            this.hidden = false;
+        }
+        else  {
+            this.hidden = true;
+        }
+    }
+
     public FriendFragment(String content) {
         this.content = content;
     }

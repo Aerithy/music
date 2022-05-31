@@ -116,7 +116,7 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/ly_tab_bar_songlist"
         android:layout_width="match_parent"
