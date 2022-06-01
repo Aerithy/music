@@ -11,15 +11,16 @@
         <entry key="..\:/Android_workspace/music/app/src/main/res/drawable/ic_launcher_background.xml" value="0.255" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/drawable/playbar_play.xml" value="0.248" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/drawable/songlist_item_list.xml" value="0.1" />
-        <entry key="..\:/Android_workspace/music/app/src/main/res/layout/acitivity_localsongs.xml" value="0.1" />
+        <entry key="..\:/Android_workspace/music/app/src/main/res/layout/acitivity_localsongs.xml" value="0.2" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/activity_base.xml" value="0.1" />
+        <entry key="..\:/Android_workspace/music/app/src/main/res/layout/activity_localsongs.xml" value="0.19791666666666666" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/activity_songlist.xml" value="0.1" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/fg_friend.xml" value="0.1" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/fg_music.xml" value="0.1" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/fg_net.xml" value="0.1" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/menu_main.xml" value="0.27898550724637683" />
-        <entry key="..\:/Android_workspace/music/app/src/main/res/layout/song_item_list.xml" value="0.4" />
+        <entry key="..\:/Android_workspace/music/app/src/main/res/layout/song_item_list.xml" value="0.16" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/layout/songlist_item_list.xml" value="0.1" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/menu/menu_main.xml" value="0.21481481481481482" />
         <entry key="..\:/Android_workspace/music/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.255" />

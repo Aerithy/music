@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private LinearLayout toolbar;
@@ -71,6 +75,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(fg3 != null)fragmentTransaction.hide(fg3);
     }
 
+    private void initLocalSongs() {
+        List<Song> songs = new ArrayList<Song>();
+        CSApp.setLocalsongs((List<Song>)songs);
+        CSApp.addSong(new Song("Song 1", "Singer 1", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 2", "Singer 1", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 3", "Singer 1", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 4", "Singer 2", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 5", "Singer 2", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 6", "Singer 2", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 7", "Singer 3", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 8", "Singer 3", R.drawable.actionbar_music_normal));
+        CSApp.addSong(new Song("Song 9", "Singer 3", R.drawable.actionbar_music_normal));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         fm = getSupportFragmentManager();
         bindViews();
+        initLocalSongs();
         bar_net.performClick();
 
         if (!CSApp.getPlayState()) {

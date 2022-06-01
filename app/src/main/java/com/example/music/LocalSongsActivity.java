@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class LocalSongsActivity extends AppCompatActivity implements View.OnClickListener{
@@ -25,8 +24,9 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
     private LinearLayout ll_songlist_toolbar;
     private ListView list_song;
     private LayoutInflater mInflater;
-    private ImageView img_songlist_icon;
-    private TextView txt_songlist_intro;
+    private ImageView img_song_icon;
+    private TextView txt_Songname;
+    private TextView txt_singer;
     private ImageView img_pause;
 
     private CurrentSongApp CSApp;
@@ -36,14 +36,14 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
 
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_songlist);
+        setContentView(R.layout.activity_localsongs);
+
         bindView();
-        songs = (List<Song>) getIntent().getSerializableExtra("song_list");
-        Icon = getIntent().getIntExtra("song_icon", 0);
 //        songs.add(new Song("海阔天空", "Beyond", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("白玫瑰", "陈奕迅", R.drawable.actionbar_music_normal));
 //        songs.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
         mInflater = LocalSongsActivity.this.getLayoutInflater();
+        songs = CSApp.getLocalsongs();
         if (songs != null) {
             songAdapter = new SongAdapter((ArrayList<Song>) songs, mInflater);
             list_song.setAdapter(songAdapter);
@@ -55,10 +55,12 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
                     /*Set the playing song field here
                      * Code:
                      * */
+                    CSApp.setCurrentSong(current_play);
+                    txt_Songname.setText(CSApp.getCurrentSong().getSongName());
+                    txt_singer.setText(CSApp.getCurrentSong().getSinger());
                 }
             });
         }
-
 
         if (!CSApp.getPlayState()) {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_pause);
@@ -66,22 +68,20 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
         else {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
         }
-
-        img_songlist_icon.setBackgroundResource(Icon);
     }
 
     private void bindView() {
         list_song = (ListView) findViewById(R.id.list_song);
         ll_songlist_toolbar = (LinearLayout) findViewById(R.id.ll_songlist_toolbar);
-        img_songlist_icon = (ImageView) findViewById(R.id.img_songlist_icon);
-        txt_songlist_intro = (TextView) findViewById(R.id.txt_songlist_intro);
+        img_song_icon = (ImageView) findViewById(R.id.img_song_icon);
+        txt_Songname = (TextView) findViewById(R.id.txt_Songname);
+        txt_singer = (TextView) findViewById(R.id.txt_singer);
 
         img_pause = (ImageView) findViewById(R.id.img_pause);
 
         img_pause.setOnClickListener(this);
 
         CSApp = (CurrentSongApp) getApplication();
-        CSApp.setPlayState(true);
     }
 
     @Override
