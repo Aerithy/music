@@ -42,8 +42,10 @@ public class SongAdapter extends BaseAdapter {
 
         convertView = mInflater.inflate(R.layout.song_item_list, null);
         ImageView img_song_icon = (ImageView) convertView.findViewById(R.id.img_song_icon);
+        ImageView img = (ImageView) convertView.findViewById(R.id.img_add_song);
         TextView txt_song_name = (TextView) convertView.findViewById(R.id.txt_song_name);
         TextView txt_song_singer = (TextView) convertView.findViewById(R.id.txt_song_singer);
+
 
         img_song_icon.setBackgroundResource(songs.get(position).getIcon());
         txt_song_name.setText(songs.get(position).getSongName());

@@ -28,6 +28,8 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
     private ImageView img_songlist_icon;
     private TextView txt_songlist_intro;
     private ImageView img_pause;
+    private TextView txt_Songname;
+    private TextView txt_singer;
 
     private CurrentSongApp CSApp;
 
@@ -54,6 +56,11 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
                 /*Set the playing song field here
                 * Code:
                 * */
+                CSApp.setCurrentSong(current_play);
+                txt_Songname.setText(CSApp.getCurrentSong().getSongName());
+                txt_singer.setText(CSApp.getCurrentSong().getSinger());
+                CSApp.setPlayState(true);
+                img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
             }
         });
 
@@ -63,10 +70,15 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
         else {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
         }
+
+        if (CSApp.getCurrentSong() != null) {
+            txt_Songname.setText(CSApp.getCurrentSong().getSongName());
+            txt_singer.setText(CSApp.getCurrentSong().getSinger());
+        }
+
         int i = ll_songlist_toolbar.getDrawingCacheBackgroundColor();
 
         img_songlist_icon.setBackgroundResource(Icon);
-        System.out.println("Fuck me" + i);
     }
 
     private void bindView() {
@@ -74,13 +86,14 @@ public class SongListActivity extends AppCompatActivity implements View.OnClickL
         ll_songlist_toolbar = (LinearLayout) findViewById(R.id.ll_songlist_toolbar);
         img_songlist_icon = (ImageView) findViewById(R.id.img_songlist_icon);
         txt_songlist_intro = (TextView) findViewById(R.id.txt_songlist_intro);
+        txt_Songname = (TextView) findViewById(R.id.txt_Songname);
+        txt_singer = (TextView) findViewById(R.id.txt_singer);
 
         img_pause = (ImageView) findViewById(R.id.img_pause);
 
         img_pause.setOnClickListener(this);
 
         CSApp = (CurrentSongApp) getApplication();
-        CSApp.setPlayState(true);
     }
 
     @Override

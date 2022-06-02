@@ -15,14 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SongListAdapter extends BaseAdapter {
 
-    private LinkedList<SongList> sList;
+    private ArrayList<SongList> sList;
     private LayoutInflater mInflater;
 
-    public SongListAdapter(LinkedList<SongList> sList, LayoutInflater mInflater) {
+    public SongListAdapter(ArrayList<SongList> sList, LayoutInflater mInflater) {
         this.sList = sList;
         this.mInflater = mInflater;
     }

@@ -58,6 +58,8 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
                     CSApp.setCurrentSong(current_play);
                     txt_Songname.setText(CSApp.getCurrentSong().getSongName());
                     txt_singer.setText(CSApp.getCurrentSong().getSinger());
+                    CSApp.setPlayState(true);
+                    img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
                 }
             });
         }
@@ -67,6 +69,11 @@ public class LocalSongsActivity extends AppCompatActivity implements View.OnClic
         }
         else {
             img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
+        }
+
+        if (CSApp.getCurrentSong() != null) {
+            txt_Songname.setText(CSApp.getCurrentSong().getSongName());
+            txt_singer.setText(CSApp.getCurrentSong().getSinger());
         }
     }
 

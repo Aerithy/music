@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -89,6 +88,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CSApp.addSong(new Song("Song 9", "Singer 3", R.drawable.actionbar_music_normal));
     }
 
+    private void initSongLists() {
+        ArrayList<SongList> songLists = new ArrayList<SongList>();
+        CSApp.setSongLists(songLists);
+        CSApp.addSongList(new SongList("Song List 1", R.drawable.actionbar_music_normal));
+        CSApp.addSongList(new SongList("Song List 2", R.drawable.actionbar_music_normal));
+        CSApp.addSongList(new SongList("Song List 3", R.drawable.actionbar_music_normal));
+        CSApp.addSongList(new SongList("Song List 4", R.drawable.actionbar_music_normal));
+        CSApp.addSongList(new SongList("Song List 5", R.drawable.actionbar_music_normal));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fm = getSupportFragmentManager();
         bindViews();
         initLocalSongs();
+        initSongLists();
         bar_net.performClick();
 
         if (!CSApp.getPlayState()) {
@@ -142,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setSelected();
                 bar_music.setSelected(true);
                 if (fg2 == null) {
-                    fg2 = new MusicFragment("Second Fragment");
+                    fg2 = new MusicFragment("Song Lists");
                     fTransaction.add(R.id.ly_content, fg2);
                 }
                 else {
@@ -174,6 +184,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         fTransaction.commit();
+    }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+        if (!CSApp.getPlayState()) {
+            img_pause.setBackgroundResource(R.drawable.playbar_btn_pause);
+        }
+        else {
+            img_pause.setBackgroundResource(R.drawable.playbar_btn_play);
+        }
+
+        if (CSApp.getCurrentSong() != null) {
+            txt_Songname.setText(CSApp.getCurrentSong().getSongName());
+            txt_singer.setText(CSApp.getCurrentSong().getSinger());
+        }
+
     }
 
 }

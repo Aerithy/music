@@ -33,6 +33,8 @@ public class MusicFragment extends Fragment implements View.OnClickListener{
     private Button btn_download_manage;
     private Button btn_my_singer;
 
+    private CurrentSongApp CSApp;
+
     public MusicFragment(String content) {
 
         this.content = content;
@@ -49,6 +51,8 @@ public class MusicFragment extends Fragment implements View.OnClickListener{
         btn_recently.setOnClickListener(this);
         btn_download_manage.setOnClickListener(this);
         btn_my_singer.setOnClickListener(this);
+
+        CSApp = (CurrentSongApp) getActivity().getApplication();
     }
 
     @Override
@@ -80,11 +84,9 @@ public class MusicFragment extends Fragment implements View.OnClickListener{
         list_songlist = (ListView) view.findViewById(R.id.list_songlist);
         bindViews();
 
-        initSongLists();
-        addSongList("Waiting in the weeds", R.drawable.actionbar_music_normal);
-
+        songLists = CSApp.getSongLists();
         mInflater = getActivity().getLayoutInflater();
-        songListAdapter = new SongListAdapter((LinkedList<SongList>) songLists, mInflater);
+        songListAdapter = new SongListAdapter((ArrayList<SongList>) songLists, mInflater);
         list_songlist.setAdapter(songListAdapter);
 
         list_songlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
