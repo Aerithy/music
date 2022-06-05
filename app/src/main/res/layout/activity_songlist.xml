@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Song List"
+                android:text="歌单列表"
                 android:textSize="40sp" />
 
         </RelativeLayout>
@@ -68,20 +68,20 @@
                 android:id="@+id/img_songlist_icon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/actionbar_search"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
-                android:layout_centerVertical="true" />
+                android:background="@drawable/actionbar_search" />
 
             <TextView
                 android:id="@+id/txt_songlist_intro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/img_songlist_icon"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_toRightOf="@id/img_songlist_icon"
                 android:text="Test txt, Test txt, Test txt"
-                android:textSize="20sp"
-                android:layout_centerVertical="true" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
@@ -99,8 +99,31 @@
         android:id="@+id/ll_deco_part"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:background="@color/white"
         android:layout_below="@+id/ll_song_list_info"
         android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/img_deco_icon"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/actionbar_music_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/img_deco_icon"
+                android:text="推荐歌单"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

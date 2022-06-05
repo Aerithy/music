@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="local music" >
+            android:text="本地歌曲" >
 
         </Button>
 
@@ -21,27 +21,27 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="recently" />
+            android:text="最近播放" />
 
         <Button
             android:id="@+id/btn_download_manage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="download manager" />
+            android:text="下载管理" />
 
         <Button
             android:id="@+id/btn_my_singer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Singer" />
+            android:text="我的歌手" />
 
         <TextView
             android:id="@+id/txt_songlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My Song List"
+            android:text="我的歌单"
             android:textSize="15sp"/>
 
         <ListView
