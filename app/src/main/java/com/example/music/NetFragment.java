@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +25,8 @@ public class NetFragment extends Fragment implements View.OnClickListener {
         this.content = content;
     }
 
-    private LinkedList<Song> songs_1;
+    private SongList songList1;
+    private ArrayList<Song> songs_1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class NetFragment extends Fragment implements View.OnClickListener {
         switch(v.getId()) {
             case R.id.ll_song_list_1:
                 Intent intent = new Intent(getActivity(), SongListActivity.class);
-                songs_1 = new LinkedList<Song>();
+                songs_1 = new ArrayList<Song>();
                 /* Here You can modify the List object 'songs_1' to determine which and what song
                  * will be shown in the SongListActivity
                  *
@@ -55,6 +57,7 @@ public class NetFragment extends Fragment implements View.OnClickListener {
                 songs_1.add(new Song("Desperato", "Eagles", R.drawable.actionbar_music_normal));
                 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
                 intent.putExtra("song_list", (Serializable) songs_1);
+                intent.putExtra("song_icon", songs_1.get(0).getIcon());
                 startActivity(intent);
                 break;
         }

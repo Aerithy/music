@@ -64,4 +64,12 @@ public class CurrentSongApp extends Application {
     public void addSong (Song song) { this.localsongs.add(song); }
 
     public void delSong (int position) { this.localsongs.remove(position); }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/HuaWenXingKai.ttf");
+        FontsOverride.setDefaultFont(this, "SANS", "fonts/HuaWenXingKai.ttf");
+        FontsOverride.setDefaultFont(this, "SERIF", "fonts/HuaWenXingKai.ttf");
+    }
 }

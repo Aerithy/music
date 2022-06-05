@@ -38,15 +38,23 @@
                     android:orientation="vertical"
                     android:clickable="true">
 
-                    <ImageView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:background="@drawable/actionbar_music_normal" />
+                        android:layout_height="140dp" >
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/actionbar_fm" />
+
+                    </RelativeLayout>
+
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Song List 1" />
+                        android:text="私人FM" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -61,7 +69,7 @@
                         android:layout_height="140dp"
                         android:background="@drawable/actionbar_music_normal" />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Song List 2" />
@@ -79,7 +87,7 @@
                         android:layout_height="140dp"
                         android:background="@drawable/actionbar_music_normal" />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Song List 3" />
